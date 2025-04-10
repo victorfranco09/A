@@ -1,3 +1,229 @@
+/* Geral */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f2f4f7;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* Tela de Login */
+#login-screen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #74ebd5 0%, #ACB6E5 100%);
+  padding: 20px;
+}
+
+.login-container {
+  background-color: #fff;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 100%;
+  max-width: 400px;
+}
+
+#login-screen input {
+  padding: 12px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+#login-screen button {
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.2s;
+}
+
+#login-screen button:hover {
+  background-color: #0056b3;
+}
+
+.error {
+  color: red;
+  margin-top: 10px;
+}
+
+/* Dashboard */
+#dashboard header {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  height: calc(100vh - 60px); /* considerando a altura do header */
+}
+
+/* Sidebar */
+#sidebar {
+  width: 300px;
+  background-color: #fdfdfd;
+  border-right: 1px solid #ddd;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+#sidebar h3 {
+  margin-top: 0;
+}
+
+/* Conteúdo */
+#content {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  background-color: #f9fcff;
+}
+
+/* Info Group (detalhes da pendência) */
+.info-group {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Abas */
+.tabs {
+  display: flex;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 20px;
+}
+
+.tabs .tab {
+  flex: 1;
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
+  background-color: #fdfdfd;
+  border: none;
+  font-size: 1rem;
+}
+
+.tabs .tab.active {
+  background-color: #fff;
+  border-bottom: 3px solid #007bff;
+  font-weight: bold;
+}
+
+.tab-content .tab-panel {
+  display: none;
+}
+
+.tab-content .tab-panel.active {
+  display: block;
+}
+
+/* Lista de Pendências */
+#pendencias-list .grupo-descricao {
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 10px;
+  background-color: #fff;
+}
+
+#pendencias-list .grupo-descricao h4 {
+  margin: 0;
+  font-size: 1.2rem;
+  background-color: #007bff;
+  color: #fff;
+  padding: 5px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+#pendencias-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#pendencias-list li {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+#pendencias-list li:hover {
+  background-color: #eef5ff;
+}
+
+/* Botões Gerais */
+button {
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.success {
+  color: green;
+  margin-top: 10px;
+}
+
+/* Modal para Partes */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 20px;
+  border-radius: 6px;
+  width: 90%;
+  max-width: 600px;
+  position: relative;
+}
+
+.modal .close {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Novas regras para a seção "Adicionar Andamento" */
+
 /* Container da área de input para o andamento */
 .andamento-input {
   display: flex;
