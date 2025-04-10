@@ -40,7 +40,7 @@
               <strong>Processo:</strong>
               <span id="det-processo-text"></span>
             </p>
-            <!-- Nova seção: Partes exibidas logo após Processo -->
+            <!-- Exibição das Partes imediatamente após o Processo -->
             <p>
               <strong>Partes:</strong>
             </p>
@@ -76,16 +76,15 @@
             <p id="salvar-msg" class="success"></p>
           </div>
 
-          <!-- Manter apenas a aba de Andamentos -->
-          <div class="tabs">
-            <button class="tab active" data-tab="andamentos">Andamentos</button>
-          </div>
-          <div class="tab-content">
-            <div id="andamentos-tab" class="tab-panel active">
-              <h4>Adicionar Andamento</h4>
+          <!-- Nova estrutura para Andamentos -->
+          <div id="andamentos-section">
+            <h4>Adicionar Andamento</h4>
+            <div class="andamento-input">
               <textarea id="novo-andamento" placeholder="Descreva o andamento..." rows="3"></textarea>
               <button id="enviar-andamento">Enviar Andamento</button>
-              <div id="andamentos-list"></div>
+            </div>
+            <div id="andamentos-list">
+              <!-- Os andamentos serão renderizados aqui pelo script.js -->
             </div>
           </div>
         </section>
