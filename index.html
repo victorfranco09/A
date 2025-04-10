@@ -36,10 +36,27 @@
         <section id="detalhes-section" class="hidden">
           <div class="info-group">
             <h2>Detalhes da Pendência</h2>
-            <p><strong>Processo:</strong> <span id="det-processo-text"></span></p>
-            <p><strong>Descrição:</strong> <span id="det-descricao-text"></span></p>
-            <p><strong>Data Inicial:</strong> <span id="det-data-inicial-text"></span></p>
-            <p><strong>Prazo Final:</strong> <span id="det-prazo-text"></span></p>
+            <p>
+              <strong>Processo:</strong>
+              <span id="det-processo-text"></span>
+            </p>
+            <!-- Nova seção: Partes exibidas logo após Processo -->
+            <p>
+              <strong>Partes:</strong>
+            </p>
+            <ul id="det-partes-list"></ul>
+            <p>
+              <strong>Descrição:</strong>
+              <span id="det-descricao-text"></span>
+            </p>
+            <p>
+              <strong>Data Inicial:</strong>
+              <span id="det-data-inicial-text"></span>
+            </p>
+            <p>
+              <strong>Prazo Final:</strong>
+              <span id="det-prazo-text"></span>
+            </p>
             <p>
               <strong>Status:</strong>
               <select id="det-status">
@@ -59,10 +76,9 @@
             <p id="salvar-msg" class="success"></p>
           </div>
 
-          <!-- Abas para alternar entre Andamentos e Partes -->
+          <!-- Manter apenas a aba de Andamentos -->
           <div class="tabs">
             <button class="tab active" data-tab="andamentos">Andamentos</button>
-            <button class="tab" data-tab="partes">Partes</button>
           </div>
           <div class="tab-content">
             <div id="andamentos-tab" class="tab-panel active">
@@ -70,10 +86,6 @@
               <textarea id="novo-andamento" placeholder="Descreva o andamento..." rows="3"></textarea>
               <button id="enviar-andamento">Enviar Andamento</button>
               <div id="andamentos-list"></div>
-            </div>
-            <div id="partes-tab" class="tab-panel">
-              <h4>Partes Envolvidas</h4>
-              <ul id="det-partes-list"></ul>
             </div>
           </div>
         </section>
