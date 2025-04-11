@@ -334,4 +334,41 @@ enviarAndamento.addEventListener("click", async () => {
   const autor = nomesPorEmail[email] || email;
   const dataAndamento = new Date().toISOString();
 
-  const
+  const docRef = db.collection("pendencias").doc(currentDocId);
+  const docSnap = await docRef.get();
+  const dados = docSnap.data();
+  const novoArray = dados.andamentos || [];
+  novoArray.push({ texto, autor, data: dataAndamento });
+
+  await docRef.update({ andamentos: novoArray });
+  novoAndamento.value = "";
+  carregarDetalhes(currentDocId);
+});
+
+// Alternar entre abas (se houver)
+tabs.forEach(tab => {
+  tab.addEventListener("click", () => {
+    tabs.forEach(t => t.classList.remove("active"));
+    tab.classList.add("active");
+    const target = tab.dataset.tab;
+    tabPanels.forEach(panel => {
+      if (panel.id === target + "-tab") {
+        panel.classList.add("active");
+      } else {
+        panel.classList.remove("active");
+      }
+    });
+  });
+});
+
+// Fechar modal
+modalClose.addEventListener("click", () => {
+  modal.classList.add("hidden");
+});
+
+// Fechar modal ao clicar fora do conteúdo
+window.addEventListener("click", (e) => {
+  if (e.target === modal) {
+    modal.classList.add("hidden");
+  }
+});
