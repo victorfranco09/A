@@ -169,8 +169,39 @@ function carregarPartes(partes) {
   detPartesList.innerHTML = "";
   partes.forEach((parte, index) => {
     const li = document.createElement("li");
-    const nome = (typeof parte === "object") ? parte.nome : parte;
-    li.textContent = nome;
+    let nome;
+    let flagsHTML = "";
+    
+    if (typeof parte === "object") {
+      nome = parte.nome;
+      
+      // Flag para contato
+      const contatoFlag = (parte.contato && parte.contato.toLowerCase() === "sim") 
+                            ? "<span class='flag flag-contato'>✅</span>" 
+                            : "<span class='flag flag-contato'>❌</span>";
+      
+      // Flag para status (vivo ou falecido/morto)
+      let statusFlag = "<span class='flag flag-status'>❔</span>";
+      if (parte.status) {
+        const st = parte.status.toLowerCase();
+        statusFlag = (st === "vivo") 
+                      ? "<span class='flag flag-status'>🙂</span>" 
+                      : ((st === "falecido" || st === "morto") 
+                          ? "<span class='flag flag-status'>💀</span>" 
+                          : "<span class='flag flag-status'>❔</span>");
+      }
+      
+      // Flag para acordo assinado
+      const acordoFlag = (parte.assinou && parte.assinou.toLowerCase() === "sim") 
+                           ? "<span class='flag flag-acordo'>📝</span>" 
+                           : "<span class='flag flag-acordo'>❌</span>";
+      
+      flagsHTML = ` ${contatoFlag} ${statusFlag} ${acordoFlag}`;
+    } else {
+      nome = parte;
+    }
+    
+    li.innerHTML = nome + flagsHTML;
     li.addEventListener("click", () => abrirModalParte(parte, index));
     detPartesList.appendChild(li);
   });
@@ -299,7 +330,7 @@ enviarAndamento.addEventListener("click", async () => {
   carregarDetalhes(currentDocId);
 });
 
-// Alternar entre abas
+// Alternar entre abas (se houver)
 tabs.forEach(tab => {
   tab.addEventListener("click", () => {
     tabs.forEach(t => t.classList.remove("active"));
