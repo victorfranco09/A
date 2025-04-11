@@ -222,9 +222,7 @@ button:hover {
   cursor: pointer;
 }
 
-/* Novas regras para a seção "Adicionar Andamento" */
-
-/* Container da área de input para o andamento */
+/* Seção "Adicionar Andamento" */
 .andamento-input {
   display: flex;
   flex-direction: column;
@@ -232,14 +230,12 @@ button:hover {
   margin-bottom: 20px;
 }
 
-/* Lista de andamentos: cada item exibido em destaque */
 #andamentos-list {
   display: flex;
   flex-direction: column;
   gap: 15px;
 }
 
-/* Estilo para cada item de andamento */
 .andamento-item {
   padding: 15px;
   border: 1px solid #ccc;
@@ -248,13 +244,17 @@ button:hover {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Ajusta a margem do parágrafo do texto do andamento */
 .andamento-item p {
   margin: 0 0 10px 0;
 }
 
-/* Estilo para exibir o autor e a data de forma sutil */
 .andamento-item small {
   color: #555;
   font-style: italic;
+}
+
+/* Estilo para as flags (emojis) */
+.flag {
+  margin-left: 4px;
+  font-size: 0.9em;
 }
